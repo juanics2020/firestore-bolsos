@@ -1,0 +1,86 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="titulo">
+      <strong>
+        BOLSOS
+      </strong>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row class="fila"><!--EMPIEZA FILA-->
+    <ion-col class= "col1"><!--EMPIEZA COLUMNA-->
+      <!--hacemos una lista con los campos que contenga una etiqueta de título y un input con su valor-->
+      <ion-item class="i1">
+        <ion-label><strong>Referencia:</strong></ion-label>
+        <ion-input [(ngModel)]="bolsosEditando.Referencia"></ion-input>
+      </ion-item>
+
+      <ion-item class="i2">
+        <ion-label><strong>Nombre:</strong></ion-label>
+        <ion-input [(ngModel)]="bolsosEditando.Nombre"></ion-input>
+      </ion-item>
+
+      <ion-item class="i3">
+        <ion-label><strong>Categoria:</strong></ion-label>
+        <ion-input [(ngModel)]="bolsosEditando.Categoria"></ion-input>
+      </ion-item>
+
+      <ion-item class="i4">
+        <ion-label><strong>Color:</strong></ion-label>
+        <ion-input [(ngModel)]="bolsosEditando.Color"></ion-input>
+      </ion-item>
+
+      <ion-item class="i5">
+        <ion-label><strong>Herrajes:</strong></ion-label>
+        <ion-input [(ngModel)]="bolsosEditando.Herrajes"></ion-input>
+      </ion-item>
+
+      <ion-item class="i6">
+        <ion-label><strong>Imagen:</strong></ion-label>
+        <ion-input [(ngModel)]="bolsosEditando.Imagen"></ion-input>
+      </ion-item>
+
+      <ion-item class="i7">
+        <ion-label><strong>Piel:</strong></ion-label>
+        <ion-input [(ngModel)]="bolsosEditando.Piel"></ion-input>
+      </ion-item>
+
+      <ion-item class="i8">
+        <ion-label><strong>Fecha Diseño:</strong></ion-label>
+        <ion-input [(ngModel)]="bolsosEditando.FechaDiseno"></ion-input>
+      </ion-item>
+
+      <ion-item class="i9">
+        <ion-label><strong>Precio:</strong></ion-label>
+        <ion-input [(ngModel)]="bolsosEditando.Precio"></ion-input>
+      </ion-item>
+
+      <ion-button class="b1" (click)="clicBotonInsertar()">Añadir bolso</ion-button>
+
+    </ion-col><!--TERMINA COLUMNA-->
+    <ion-col class="col2"><!--EMPIEZA COLUMNA-->
+      <h2 class="tLista"><strong>LISTA DE BOLSOS</strong></h2>
+      <ion-list>
+        <!--Creamos una variable llamada documentBolsos y va tomando
+        el valor de todos los registros con el bucle, a partir del array de los bolsos-->
+        <!--Añadimos que al hacer clic se ponga el bolso seleccionado(obtenemos su id)-->
+        <ion-item *ngFor="let documentBolsos of arrayColeccionBolsos" (click)="selecBolso(documentBolsos)">
+          <ion-grid>
+            <ion-row>
+              <h3 class="tR">{{documentBolsos.data.Referencia}}</h3>
+            </ion-row>
+            <ion-row>
+              <p class="tB">{{documentBolsos.data.Nombre}}</p>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+
+      <ion-button class="b2" (click)="clicBotonBorrar()">Borrar Bolso</ion-button>
+      <ion-button class="b3" (click)="clicBotonModificar()">Modificar Bolso</ion-button>
+    </ion-col><!--TERMINA COLUMNA-->
+</ion-row> <!--FIN FILA-->
+  
+</ion-content>
