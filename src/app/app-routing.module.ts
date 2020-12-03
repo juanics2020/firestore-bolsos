@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+//const routes: Constante donde van definidas todas las rutas
+//path: dirección
+//redirectTo: redirecciones a páginas
+//loadChildren: donde se define el módulo de la página a la que vamos a dirigir
+//El primer path es el punto de entrada (home)
 const routes: Routes = [
   {
     path: 'home',
@@ -10,6 +15,10 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'ver-aticulo',
+    loadChildren: () => import('./ver-aticulo/ver-aticulo.module').then( m => m.VerAticuloPageModule)
   },
 ];
 

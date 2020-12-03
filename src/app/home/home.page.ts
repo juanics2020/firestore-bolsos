@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Bolsos } from '../bolsos';
 //importamos el archivo de la base de datos que nos había creado anteriormente
 import { FirestoreService } from '../firestore.service';
+import { Router } from "@angular/router";
+
 
 @Component({
   selector: 'app-home',
@@ -23,7 +25,7 @@ export class HomePage {
   idBolsoSelec: string;
 
 
-  constructor(private firestoreService: FirestoreService) {
+  constructor(private firestoreService: FirestoreService, private router: Router) {
         // Crear un bolso vacío al empezar
         this.bolsosEditando = {} as Bolsos;
         //Obtener registros llamando a la función
@@ -91,6 +93,12 @@ export class HomePage {
       // Limpiar datos de pantalla
       this.bolsosEditando = {} as Bolsos;
     })
+  }
+
+
+
+  navigateToVerArticulo() {
+    this.router.navigate(["/ver-articulo"]);
   }
 
 }
