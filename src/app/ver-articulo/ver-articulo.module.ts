@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { VerAticuloPageRoutingModule } from './ver-aticulo-routing.module';
+import { VerArticuloPageRoutingModule } from './ver-articulo-routing.module';
 
-import { VerAticuloPage } from './ver-aticulo.page';
+import { VerArticuloPage } from './ver-articulo.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    VerAticuloPageRoutingModule
+    VerArticuloPageRoutingModule
   ],
-  declarations: [VerAticuloPage]
+  declarations: [VerArticuloPage]
 })
-export class VerAticuloPageModule {}
+export class VerArticuloPageModule {}

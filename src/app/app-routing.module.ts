@@ -17,8 +17,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'ver-aticulo',
-    loadChildren: () => import('./ver-aticulo/ver-aticulo.module').then( m => m.VerAticuloPageModule)
+    path: 'ver-articulo',
+    loadChildren: () => import('./ver-articulo/ver-articulo.module').then( m => m.VerArticuloPageModule)
   },
 ];
 
