@@ -1,14 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Ver Articulo</ion-title>
+    <ion-title class="t1">Ver Articulos</ion-title>
     <!--Añadimos un botón tipo flecha para volver atrás-->
+    <!--slot="start" pone el botón a la izquierda del encabezado (header)-->
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <!--Si existe un historial de páginas se va a la anterior-->
+      <!--Si no exite historial nos enviará a la primera página home-->      
+      <ion-back-button class="bback1" defaultHref="home" icon="arrow-back-circle-outline"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
+<br>
 <!--Mostramos el id que recibimos de la primera página-->
-<ion-content> My ID is: {{ id }} </ion-content>
+<ion-content><strong> ID del Bolso es:</strong> {{ id }} </ion-content>
 
 
