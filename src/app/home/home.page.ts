@@ -15,7 +15,7 @@ export class HomePage {
   //Variable de tipo bolso.
   bolsosEditando: Bolsos;
 
-  //Variable de tipo array que recoge los registros de bolsos
+  //Variable de tipo array que recoge los registros de bolsos desde la base de datos
   arrayColeccionBolsos: any = [{
     id: "",
     data: {} as Bolsos
@@ -96,9 +96,8 @@ export class HomePage {
   }
 
 
-
   navigateToVerArticulo() {
-    this.router.navigate(["/ver-articulo"]);
+    this.router.navigate(["/ver-articulo", this.idBolsoSelec]);
   }
 
 }

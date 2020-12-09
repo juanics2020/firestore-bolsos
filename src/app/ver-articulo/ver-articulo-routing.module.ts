@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { PreloadAllModules, Routes, RouterModule } from '@angular/router';
 
 import { VerArticuloPage } from './ver-articulo.page';
 
+//El path hacia bolsos ahora puede llevar un id
 const routes: Routes = [
+  { path: "", redirectTo: "home", pathMatch: "full" },
+  { path: "home", loadChildren: "./home/home.module#HomePageModule" },
+  { path: "bolsos/:id", loadChildren: "./bolsos/bolsos.module#VerArticuloPageModule" },
   {
     path: '',
     component: VerArticuloPage
@@ -11,7 +15,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes),
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule],
 })
 export class VerArticuloPageRoutingModule {}
