@@ -99,5 +99,4 @@ export class HomePage {
   navigateToVerArticulo() {
     this.router.navigate(["/ver-articulo", this.idBolsoSelec]);
   }
-
 }
