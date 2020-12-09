@@ -4,6 +4,9 @@ import { Bolsos } from '../bolsos';
 import { FirestoreService } from '../firestore.service';
 import { Router } from "@angular/router";
 
+//Importamos el controlador de alertas de ionic
+import { AlertController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-home',
@@ -25,7 +28,7 @@ export class HomePage {
   idBolsoSelec: string;
 
 
-  constructor(private firestoreService: FirestoreService, private router: Router) {
+  constructor(private firestoreService: FirestoreService, private router: Router, private alertCtrl: AlertController) {
         // Crear un bolso vacío al empezar
         this.bolsosEditando = {} as Bolsos;
         //Obtener registros llamando a la función
@@ -97,6 +100,28 @@ export class HomePage {
 
 
   navigateToVerArticulo() {
-    this.router.navigate(["/ver-articulo", this.idBolsoSelec]);
+
+    if(this.idBolsoSelec == null){
+      this.showAlert();
+    }else{
+      this.router.navigate(["/ver-articulo", this.idBolsoSelec]);      
+    }
   }
+
+
+  //Creamos una alerta para cuando pulsen el botón (ir a la página ver-bolso) sin seleccionar un bolso
+  showAlert() {
+    this.alertCtrl.create({
+      header: 'Atención',
+      subHeader: 'Ver Bolsos',
+      message: 'Debe seleccionar un bolso antes de pulsar el botón',
+      buttons: ['OK']
+    }).then(res => {
+
+      res.present();
+
+    });
+
+  }
+
 }
