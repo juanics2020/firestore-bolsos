@@ -11,9 +11,13 @@
   </ion-toolbar>
 </ion-header>
 <br>
-<!--Mostramos el id que recibimos de la primera página-->
-<ion-content><strong> ID del Bolso es:</strong> {{ id }}
 
+<!--Mostramos el id que recibimos de la primera página-->
+<ion-content>
+  
+  <div class="ion-padding">
+
+    <strong class = "i0"> ID del Bolso es:</strong> {{ id }}
 
     <!--hacemos una lista con los campos que contenga una etiqueta de título y un input con su valor-->
     <ion-item class="i1">
@@ -64,6 +68,7 @@
     <ion-button class="b2" (click)="clicBotonBorrar()">Borrar Bolso</ion-button>
     <ion-button class="b3" (click)="clicBotonModificar()">Modificar Bolso</ion-button>
 
+  </div>
 </ion-content>
 
 

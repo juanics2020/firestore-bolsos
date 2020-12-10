@@ -9,35 +9,28 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-row class="fila"><!--EMPIEZA FILA-->
-    
-    <ion-col class="col1"><!--EMPIEZA COLUMNA-->
+
+  <div class="ion-padding">
+    <ion-list>
       <h2 class="tLista"><strong>LISTA DE BOLSOS</strong></h2>
-      <ion-list>
-        <!--Creamos una variable llamada documentBolsos y va tomando
-        el valor de todos los registros con el bucle, a partir del array de los bolsos-->
-        <!--Añadimos que al hacer clic se ponga el bolso seleccionado(obtenemos su id)-->
-        <ion-item *ngFor="let documentBolsos of arrayColeccionBolsos" (click)="selecBolso(documentBolsos)">
-          <ion-grid>
-            <ion-row>
-              <h3 class="tR">{{documentBolsos.data.Referencia}}</h3>
-            </ion-row>
-            <ion-row>
-              <p class="tB">{{documentBolsos.data.Nombre}}</p>
-            </ion-row>
-          </ion-grid>
-        </ion-item>
-      </ion-list>
-      <ion-button class="b1" (click)="clicBotonInsertar()">Añadir bolso</ion-button>
+      <!--Creamos una variable llamada documentBolsos y va tomando
+      el valor de todos los registros con el bucle, a partir del array de los bolsos-->
+      <!--Añadimos que al hacer clic se ponga el bolso seleccionado(obtenemos su id)-->
+      <ion-item *ngFor="let documentBolsos of arrayColeccionBolsos" (click)="selecBolso(documentBolsos)">
+        <ion-grid>
+          <ion-row>
+            <h3 class="tR">{{documentBolsos.data.Referencia}}</h3>
+          </ion-row>
+          <ion-row>
+            <p class="tB">{{documentBolsos.data.Nombre}}</p>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+    <ion-button class="b1" (click)="clicBotonInsertar()">Añadir bolso</ion-button>
 
-      <ion-content>
-        <div class="ion-padding">
-          <ion-button color="primary" expand="full" (click)="navigateToVerArticulo()">
-            Ver Bolso</ion-button>
-        </div>
-      </ion-content>
-
-    </ion-col><!--TERMINA COLUMNA-->
-</ion-row> <!--FIN FILA-->
+    <ion-button color="primary" expand="full" (click)="navigateToVerArticulo()">
+      Ver Bolso</ion-button>
+  </div>
   
 </ion-content>

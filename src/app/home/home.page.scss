@@ -32,39 +32,17 @@
   color: rgb(146, 85, 35);
 }
 
-.fila {
-  background-color: rgb(223, 201, 193);
-}
 
-.b1, .b2, .b3{
+.b1{
   --background: rgb(146, 85, 35);
 }
 
-.col1, .col2{
-  border-width: 2px;
-  border-style: solid;
-  border-color:  rgb(146, 85, 35);
-}
 
 //ETILOS VARIABLES
+/*Para que tanto los botones como los textos se hagan
+ más grandes o pequeños según tamaño de pantalla*/
 
-.i1, .i2, .i3, .i4, .i5, .i6, .i7, .i8, .i9, .tLista, .tR, .tB{
-
-  @media screen and (min-width: 1px) and (max-width: 500px)  {    
-    font-size: small;   
-  }
-
-  @media screen and (min-width: 501px) and (max-width: 950px){
-    font-size: medium; 
-  }
-
-  @media screen and (min-width: 951px) and (max-width: 2000px){
-    font-size: large; 
-  }
-}
-
-
-.b1, .b2, .b3{
+.b1{
 
   @media screen and (min-width: 1px) and (max-width: 500px)  {    
     font-size: xx-small;   
@@ -76,5 +54,35 @@
 
   @media screen and (min-width: 951px) and (max-width: 2000px){
     font-size: small; 
+  }
+}
+
+.titulo, .tLista, .tR{
+
+  @media screen and (min-width: 1px) and (max-width: 500px)  {    
+    font-size: medium;   
+  }
+
+  @media screen and (min-width: 501px) and (max-width: 950px){
+    font-size: large; 
+  }
+
+  @media screen and (min-width: 951px) and (max-width: 2000px){
+    font-size: x-large; 
+  }
+}
+
+.tB{
+
+  @media screen and (min-width: 1px) and (max-width: 500px)  {    
+    font-size: small;   
+  }
+
+  @media screen and (min-width: 501px) and (max-width: 950px){
+    font-size: medium; 
+  }
+
+  @media screen and (min-width: 951px) and (max-width: 2000px){
+    font-size: large; 
   }
 }
