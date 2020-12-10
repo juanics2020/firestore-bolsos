@@ -12,6 +12,61 @@
 </ion-header>
 <br>
 <!--Mostramos el id que recibimos de la primera página-->
-<ion-content><strong> ID del Bolso es:</strong> {{ id }} </ion-content>
+<ion-content><strong> ID del Bolso es:</strong> {{ id }}
+
+
+    <!--hacemos una lista con los campos que contenga una etiqueta de título y un input con su valor-->
+    <ion-item class="i1">
+      <ion-label><strong>Referencia:</strong></ion-label>
+      <!--<ion-input [(ngModel)]="bolsosEditando.Referencia"></ion-input>-->
+    </ion-item>
+
+    <ion-item class="i2">
+      <ion-label><strong>Nombre:</strong></ion-label>
+      <!-- <ion-input [(ngModel)]="bolsosEditando.Nombre"></ion-input> -->
+    </ion-item>
+
+    <ion-item class="i3">
+      <ion-label><strong>Categoria:</strong></ion-label>
+      <!-- <ion-input [(ngModel)]="bolsosEditando.Categoria"></ion-input> -->
+    </ion-item>
+
+    <ion-item class="i4">
+      <ion-label><strong>Color:</strong></ion-label>
+      <!-- <ion-input [(ngModel)]="bolsosEditando.Color"></ion-input> -->
+    </ion-item>
+
+    <ion-item class="i5">
+      <ion-label><strong>Herrajes:</strong></ion-label>
+      <!-- <ion-input [(ngModel)]="bolsosEditando.Herrajes"></ion-input> -->
+    </ion-item>
+
+    <ion-item class="i6">
+      <ion-label><strong>Imagen:</strong></ion-label>
+      <!-- <ion-input [(ngModel)]="bolsosEditando.Imagen"></ion-input> -->
+    </ion-item>
+
+    <ion-item class="i7">
+      <ion-label><strong>Piel:</strong></ion-label>
+      <!-- <ion-input [(ngModel)]="bolsosEditando.Piel"></ion-input> -->
+    </ion-item>
+
+    <ion-item class="i8">
+      <ion-label><strong>Fecha Diseño:</strong></ion-label>
+      <!-- <ion-input [(ngModel)]="bolsosEditando.FechaDiseno"></ion-input> -->
+    </ion-item>
+
+    <ion-item class="i9">
+      <ion-label><strong>Precio:</strong></ion-label>
+      <!-- <ion-input [(ngModel)]="bolsosEditando.Precio"></ion-input> -->
+    </ion-item>
+
+    <ion-button class="b1" (click)="clicBotonInsertar()">Añadir bolso</ion-button>
+    <ion-button class="b2" (click)="clicBotonBorrar()">Borrar Bolso</ion-button>
+    <ion-button class="b3" (click)="clicBotonModificar()">Modificar Bolso</ion-button>
+
+</ion-content>
+
+
 
 
