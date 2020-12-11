@@ -86,3 +86,32 @@
     font-size: large; 
   }
 }
+
+
+.tI{
+
+  @media screen and (min-width: 1px) and (max-width: 500px)  {    
+    width: 40px;
+    height: 40px; 
+    border-style: solid; 
+    border-width: thin;   
+  }
+
+  @media screen and (min-width: 501px) and (max-width: 950px){
+    width: 80px;
+    height: 80px;   
+    border-style: solid; 
+    border-width: thin; 
+  }
+
+  @media screen and (min-width: 951px) and (max-width: 2000px){
+    width: 120px;
+    height: 120px; 
+    border-style: solid; 
+    border-width: thin;
+  }
+
+ 
+
+
+}

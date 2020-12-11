@@ -16,14 +16,20 @@
       <!--Creamos una variable llamada documentBolsos y va tomando
       el valor de todos los registros con el bucle, a partir del array de los bolsos-->
       <!--Añadimos que al hacer clic se ponga el bolso seleccionado(obtenemos su id)-->
-      <ion-item *ngFor="let documentBolsos of arrayColeccionBolsos" (click)="selecBolso(documentBolsos)">
+      <ion-item *ngFor="let documentBolsos of arrayColeccionBolsos" (click)="selecBolso(documentBolsos)"  class="light-back" color="light">
+        
         <ion-grid>
+               
           <ion-row>
-            <h3 class="tR">{{documentBolsos.data.Referencia}}</h3>
+            <ion-col size=4>
+              <h3 class="tR">{{documentBolsos.data.Referencia}}</h3>
+              <p class="tB">{{documentBolsos.data.Nombre}}</p>
+            </ion-col>
+            <ion-col>
+              <img src={{documentBolsos.data.Imagen}} class="tI"/>
+            </ion-col>
           </ion-row>
-          <ion-row>
-            <p class="tB">{{documentBolsos.data.Nombre}}</p>
-          </ion-row>
+
         </ion-grid>
       </ion-item>
     </ion-list>
