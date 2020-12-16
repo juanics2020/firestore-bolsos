@@ -6,6 +6,10 @@ import { FirestoreService } from '../firestore.service';
 
 import { Router } from "@angular/router";
 
+//Importamos el controlador de alertas de ionic
+import { AlertController } from '@ionic/angular';
+
+
 @Component({
   selector: 'app-ver-articulo',
   templateUrl: './ver-articulo.page.html',
@@ -23,7 +27,7 @@ export class VerArticuloPage implements OnInit {
   };
 
 
-  constructor(private activatedRoute: ActivatedRoute, private firestoreService: FirestoreService, private router: Router) {}
+  constructor(private activatedRoute: ActivatedRoute, private firestoreService: FirestoreService, private router: Router, private alertCtrl: AlertController) {}
 
   ngOnInit() {
     //Recoge el id y el tipo de acción que realizamos
@@ -47,16 +51,6 @@ export class VerArticuloPage implements OnInit {
     }
   }
 
-  clicBotonBorrar() {
-    //Borramos el bolso
-    this.firestoreService.borrar("bolsos", this.id).then(() => {
-      // Limpiar datos de pantalla
-      this.document.data = {} as Bolsos;
-      //Cuando eliminemos el artículo volvemos a home
-      this.router.navigate(["/home"]); 
-    })
-  }
-
   clicBotonModificar() {
     //Modificamos el bolso seleccionado
     this.firestoreService.actualizar("bolsos", this.id, this.document.data).then(() => {
@@ -78,5 +72,55 @@ export class VerArticuloPage implements OnInit {
     this.router.navigate(["/home"]); 
   }
  
+
+
+  clicBotonBorrar() {
+    //Sólo se borrará el registro si el usuario lo confirma desde la alerta
+    this.alertCtrl.create({
+      header: 'Atención',
+      subHeader: 'Eliminar Bolso',
+      message: '¿Está seguro que desea eliminar el bolso?',
+      buttons: [
+        {
+          text: 'NO',
+          role: 'cancel',
+          handler: () => {
+            console.log("Cancelado");
+          },
+        },
+        {
+          text: 'SÍ',
+          handler: () => {
+            //YA QUE EL USUARIO HA CONFIRMADO, BORRAMOS EL BOLSO
+            this.firestoreService.borrar("bolsos", this.id).then(() => {
+              // Limpiar datos de pantalla
+              this.document.data = {} as Bolsos;
+
+              //Cuando eliminemos el artículo volvemos a home
+              this.router.navigate(["/home"]); 
+            })            
+          },
+        }
+      ]
+    }).then(res => {
+      res.present();
+    });
+
+  }
+
+  //Alerta tipo Sencilla (un sólo botón)
+  //  showAlert() {
+  //   this.alertCtrl.create({
+  //     header: 'Atención',
+  //     subHeader: 'Ver Bolsos',
+  //     message: 'Debe seleccionar un bolso antes de pulsar el botón',
+  //     buttons: ['OK']
+  //   }).then(res => {
+
+  //     res.present();
+
+  //   });
+
+  // }
 
 }
