@@ -39,16 +39,7 @@ export class HomePage {
 
 
   clicBotonInsertar() {
-    // //Inserta un objeto de tipo bolso en la base de datos, llamando al método insertar (en el archivo firestore.service.ts)
-    // this.firestoreService.insertar("bolsos", this.bolsosEditando).then(() => {
-    //   console.log('Bolso creado correctamente!');
-    //   //Limpiamos el contenido del bolso que se estaba editando en el navegador
-    //   this.bolsosEditando= {} as Bolsos;
-    // }, (error) => {
-    //   console.error(error);//Si da error
-    // });
-
-    this.tipo = 'insertar';
+      this.tipo = 'insertar';
     //en el caso de insertar, no hemos seleccionado bolso y el id que pasamos debe estar vacío
     this.idBolsoSelec = '';
 

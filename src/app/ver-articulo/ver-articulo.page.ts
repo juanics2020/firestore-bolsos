@@ -30,6 +30,7 @@ export class VerArticuloPage implements OnInit {
     this.id = this.activatedRoute.snapshot.paramMap.get("id");
     this.tipo = this.activatedRoute.snapshot.paramMap.get("tipo");
 
+    //Sólo se cargarán los datos del bolso si se está modificando un bolso seleccionado(variable tipo se recibe del home)
     if(this.tipo == 'modificar'){
       this.firestoreService.consultarPorId("bolsos", this.id).subscribe((resultado) => {
         // Preguntar si se hay encontrado un document con ese ID
@@ -73,7 +74,7 @@ export class VerArticuloPage implements OnInit {
     }, (error) => {
       console.error(error);//Si da error
     });
-    //Cuando eliminemos el artículo volvemos a home
+    //Cuando creemos el artículo volvemos a home
     this.router.navigate(["/home"]); 
   }
  

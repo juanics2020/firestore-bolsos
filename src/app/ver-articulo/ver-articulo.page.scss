@@ -1,5 +1,5 @@
 //ESTILOS FIJOS
-.b2, .b3{
+.b1, .b2, .b3{
     --background: rgb(146, 85, 35);
   }
 
@@ -56,7 +56,7 @@
     }
   }
 
-  .b2, .b3{
+  .b1, .b2, .b3{
 
     @media screen and (min-width: 1px) and (max-width: 500px)  {    
       font-size: xx-small;   
