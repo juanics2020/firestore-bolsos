@@ -27,6 +27,8 @@ export class HomePage {
   //Variable para guardar el id del bolso seleccionado
   idBolsoSelec: string;
 
+  //Variable para saber si modificamos un bolso o lo añadimos nuevo
+  tipo: string;
 
   constructor(private firestoreService: FirestoreService, private router: Router, private alertCtrl: AlertController) {
         // Crear un bolso vacío al empezar
@@ -37,14 +39,20 @@ export class HomePage {
 
 
   clicBotonInsertar() {
-    //Inserta un objeto de tipo bolso en la base de datos, llamando al método insertar (en el archivo firestore.service.ts)
-    this.firestoreService.insertar("bolsos", this.bolsosEditando).then(() => {
-      console.log('Bolso creado correctamente!');
-      //Limpiamos el contenido del bolso que se estaba editando en el navegador
-      this.bolsosEditando= {} as Bolsos;
-    }, (error) => {
-      console.error(error);//Si da error
-    });
+    // //Inserta un objeto de tipo bolso en la base de datos, llamando al método insertar (en el archivo firestore.service.ts)
+    // this.firestoreService.insertar("bolsos", this.bolsosEditando).then(() => {
+    //   console.log('Bolso creado correctamente!');
+    //   //Limpiamos el contenido del bolso que se estaba editando en el navegador
+    //   this.bolsosEditando= {} as Bolsos;
+    // }, (error) => {
+    //   console.error(error);//Si da error
+    // });
+
+    this.tipo = 'insertar';
+    //en el caso de insertar, no hemos seleccionado bolso y el id que pasamos debe estar vacío
+    this.idBolsoSelec = '';
+
+    this.navigateToVerArticulo();
   }
 
   obtenerListaBolsos(){
@@ -76,52 +84,31 @@ export class HomePage {
     this.bolsosEditando.Piel = BolsoSelec.data.Piel;
     this.bolsosEditando.FechaDiseno = BolsoSelec.data.FechaDiseno;
     this.bolsosEditando.Precio = BolsoSelec.data.Precio;
-  }
 
-  clicBotonBorrar() {
-    //Borramos el bolso
-    this.firestoreService.borrar("bolsos", this.idBolsoSelec).then(() => {
-      // Actualizar la lista completa con la función de arriba
-      this.obtenerListaBolsos();
-      // Limpiar datos de pantalla
-      this.bolsosEditando = {} as Bolsos;
-    })
-  }
+    this.tipo = 'modificar';
 
-  clicBotonModificar() {
-    //Modificamos el bolso seleccionado
-    this.firestoreService.actualizar("bolsos", this.idBolsoSelec, this.bolsosEditando).then(() => {
-      // Actualizar la lista completa
-      this.obtenerListaBolsos();
-      // Limpiar datos de pantalla
-      this.bolsosEditando = {} as Bolsos;
-    })
+    this.navigateToVerArticulo();
   }
 
 
   navigateToVerArticulo() {
-
-    if(this.idBolsoSelec == null){
-      this.showAlert();
-    }else{
-      this.router.navigate(["/ver-articulo", this.idBolsoSelec]);      
-    }
+    this.router.navigate(["/ver-articulo", this.idBolsoSelec, this.tipo]);      
   }
 
 
-  //Creamos una alerta para cuando pulsen el botón (ir a la página ver-bolso) sin seleccionar un bolso
-  showAlert() {
-    this.alertCtrl.create({
-      header: 'Atención',
-      subHeader: 'Ver Bolsos',
-      message: 'Debe seleccionar un bolso antes de pulsar el botón',
-      buttons: ['OK']
-    }).then(res => {
+  // //Creamos una alerta para cuando pulsen el botón (ir a la página ver-bolso) sin seleccionar un bolso
+  // showAlert() {
+  //   this.alertCtrl.create({
+  //     header: 'Atención',
+  //     subHeader: 'Ver Bolsos',
+  //     message: 'Debe seleccionar un bolso antes de pulsar el botón',
+  //     buttons: ['OK']
+  //   }).then(res => {
 
-      res.present();
+  //     res.present();
 
-    });
+  //   });
 
-  }
+  // }
 
 }
