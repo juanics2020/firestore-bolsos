@@ -20,28 +20,28 @@
 <ion-content [fullscreen]="true">
 
   <div class="ion-padding">
-    <ion-list>
+    
       <h2 class="tLista"><strong>LISTA DE BOLSOS</strong></h2>
       <!--Creamos una variable llamada documentBolsos y va tomando
       el valor de todos los registros con el bucle, a partir del array de los bolsos-->
       <!--Añadimos que al hacer clic se ponga el bolso seleccionado(obtenemos su id)-->
-      <ion-item *ngFor="let documentBolsos of arrayColeccionBolsos" (click)="selecBolso(documentBolsos)"  class="light-back" color="light">
-        
-        <ion-grid>
-               
-          <ion-row>
-            <ion-col size=4>
+      <ion-grid>
+        <ion-row>    
+          
+            <ion-col *ngFor="let documentBolsos of arrayColeccionBolsos" size-xl="3" size-lg="4" size-md="5" size-sm="6" size-s="7" size-xs="12">
+            <ion-card class="card" (click)="selecBolso(documentBolsos)"> 
+              <ioncard-content> 
               <h3 class="tR">{{documentBolsos.data.Referencia}}</h3>
               <p class="tB">{{documentBolsos.data.Nombre}}</p>
-            </ion-col>
-            <ion-col>
               <img src={{documentBolsos.data.Imagen}} class="tI"/>
+              </ioncard-content>
+            </ion-card> 
             </ion-col>
-          </ion-row>
-
-        </ion-grid>
-      </ion-item>
-    </ion-list>
+          
+        </ion-row>
+      </ion-grid>
+      
+    
     <ion-button class="b1" (click)="clicBotonInsertar()">Añadir bolso</ion-button>
 
   </div>

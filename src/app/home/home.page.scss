@@ -35,14 +35,12 @@ ion-header{
   background-repeat: repeat;
 }
 
-
-#encabezado{
-  margin-top:auto;
-  margin-bottom:auto;
-  margin-left:auto;
-  margin-right:auto;
-
+.card{
+  text-align: center;
+  --ion-background-color: #925523;
+  color:white;
 }
+
 
 .titulo, .tLista{
   color: white;
@@ -149,6 +147,30 @@ ion-header{
     border-width: thin;
   }
 
+
+  .card{
+
+    @media screen and (min-width: 1px) and (max-width: 500px)  {    
+      padding-top: 1em;
+      padding-bottom: 1em;
+      padding-right: 1em;
+      padding-left: 1em;   
+    }
+  
+    @media screen and (min-width: 501px) and (max-width: 950px){
+      padding-top: 5em;
+      padding-bottom: 5em;
+      padding-right: 5em;
+      padding-left: 5em;   
+    }
+  
+    @media screen and (min-width: 951px) and (max-width: 2000px){
+      padding-top: 10em;
+      padding-bottom: 10em;
+      padding-right: 10em;
+      padding-left: 10em; 
+    }
+  }
 
 
 }
