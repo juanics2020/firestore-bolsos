@@ -65,9 +65,11 @@
       <ion-input [(ngModel)]="document.data.Precio"></ion-input>
     </ion-item>
 
-    <ion-button class="b1" (click)="clicBotonInsertar()" title="Añadir"><ion-icon name="bag-add"></ion-icon></ion-button>
-    <ion-button class="b2" (click)="clicBotonBorrar()" title="Eliminar"><ion-icon name="bag-remove"></ion-icon></ion-button>
-    <ion-button class="b3" (click)="clicBotonModificar()" title="Modificar"><ion-icon name="create"></ion-icon></ion-button>
+    <!--Botón Añadir sólo aparecerá si en la pantalla Home elegimos Añadir (*ngIf = "tipo =='insertar'")
+       y los otros dos botones sólo si en la pantalla Home pinchamos sobre un bolso (*ngIf = "tipo =='modificar'") -->
+    <ion-button class="b1" (click)="clicBotonInsertar()" title="Añadir" *ngIf = "tipo =='insertar'"><ion-icon name="bag-add"></ion-icon></ion-button>
+    <ion-button class="b2" (click)="clicBotonBorrar()" title="Eliminar" *ngIf = "tipo =='modificar'"><ion-icon name="bag-remove"></ion-icon></ion-button>
+    <ion-button class="b3" (click)="clicBotonModificar()" title="Modificar" *ngIf = "tipo =='modificar'"><ion-icon name="create"></ion-icon></ion-button>
 
   </div>
 </ion-content>

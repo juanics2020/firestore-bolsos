@@ -40,10 +40,19 @@
           
         </ion-row>
       </ion-grid>
-      
-    
-    <ion-button class="b1" (click)="clicBotonInsertar()">Añadir bolso</ion-button>
 
   </div>
-  
+
+  <!-- Cuidado COMPONENTES INDIVIDUALES (COMO LAS CARDS, NO PUEDEN TENER CADA UNA SU PROPIO FAB-->
+  <ion-fab  vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="b1" (click)="clicBotonInsertar()" color="warning"><ion-icon name="bag-add"></ion-icon></ion-fab-button>
+  </ion-fab>
+
 </ion-content>
+
+
+
+
+
+
+
