@@ -3,16 +3,20 @@
     <ion-title class="titulo">
       <ion-grid>
         <ion-row>
-            <ion-col size=2>
+          <ion-col size=2>
             <img src="../../assets/img/logo2-peque.png" class="logo"/>
           </ion-col>
           <ion-col size=10  id="encabezado">
-            <ion-icon class="icono" name="home"></ion-icon> 
-            <strong>  BOLSOS</strong>
+
+            <span>
+              <ion-icon class="icono" name="home"></ion-icon> 
+              <strong>  BOLSOS</strong>
+            </span>
+
           </ion-col>
         </ion-row>
-    </ion-grid>
-
+      </ion-grid>
+      
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -29,11 +33,14 @@
         <ion-row>    
           
             <ion-col *ngFor="let documentBolsos of arrayColeccionBolsos" size-xl="3" size-lg="4" size-md="5" size-sm="6" size-s="7" size-xs="12">
-            <ion-card class="card" (click)="selecBolso(documentBolsos)"> 
-              <ioncard-content> 
-              <h3 class="tR">{{documentBolsos.data.Referencia}}</h3>
-              <p class="tB">{{documentBolsos.data.Nombre}}</p>
-              <img src={{documentBolsos.data.Imagen}} class="tI"/>
+            <ion-card class="card" (click)="selecBolso(documentBolsos)" (mouseover)="mOver=true" (mouseout)="mOver=false"> 
+              <ioncard-content>
+                <ion-icon id="icMouse" name="open-outline" *ngIf="mOver"></ion-icon>
+                <p *ngIf="!mOver">Haz clic...</p>
+                <h3 id="tR" class="tR">   {{documentBolsos.data.Referencia}}</h3>
+
+                <p class="tB">{{documentBolsos.data.Nombre}}</p>
+                <img src={{documentBolsos.data.Imagen}} class="tI"/>
               </ioncard-content>
             </ion-card> 
             </ion-col>
@@ -43,11 +50,15 @@
 
   </div>
 
+  <ion-fab  vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button class="b1" (click)="showAutor()" color="warning"><ion-icon name="information-outline"></ion-icon></ion-fab-button>
+  </ion-fab>
+
   <!-- Cuidado COMPONENTES INDIVIDUALES (COMO LAS CARDS, NO PUEDEN TENER CADA UNA SU PROPIO FAB-->
   <ion-fab  vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button class="b1" (click)="clicBotonInsertar()" color="warning"><ion-icon name="bag-add"></ion-icon></ion-fab-button>
   </ion-fab>
-
+  
 </ion-content>
 
 
