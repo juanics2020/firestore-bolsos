@@ -4,6 +4,8 @@ import { Bolsos } from '../bolsos';
 import { FirestoreService } from '../firestore.service';
 import { Router } from "@angular/router";
 
+//Importamos el controlador de alertas de ionic
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -27,7 +29,7 @@ export class HomePage {
   //Variable para saber si modificamos un bolso o lo añadimos nuevo
   tipo: string;
 
-  constructor(private firestoreService: FirestoreService, private router: Router) {
+  constructor(private firestoreService: FirestoreService, private router: Router, private alertCtrl: AlertController) {
         // Crear un bolso vacío al empezar
         this.bolsosEditando = {} as Bolsos;
         //Obtener registros llamando a la función
@@ -81,6 +83,18 @@ export class HomePage {
 
   navigateToVerArticulo() {
     this.router.navigate(["/ver-articulo", this.idBolsoSelec, this.tipo]);      
+  }
+
+
+  //  Alerta tipo Sencilla (un sólo botón)
+  showAutor() {
+    this.alertCtrl.create({
+      header: 'Autor',
+      message: 'Juani Cañamaque - 2ºDAW',
+      buttons: ['OK']
+    }).then(res => {
+      res.present();
+    });
   }
 
 
