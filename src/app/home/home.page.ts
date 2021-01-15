@@ -29,11 +29,16 @@ export class HomePage {
   //Variable para saber si modificamos un bolso o lo añadimos nuevo
   tipo: string;
 
+  //Variable para controlar si el ratón está encima de la card
+  mOver: boolean;
+   
   constructor(private firestoreService: FirestoreService, private router: Router, private alertCtrl: AlertController) {
         // Crear un bolso vacío al empezar
         this.bolsosEditando = {} as Bolsos;
         //Obtener registros llamando a la función
         this.obtenerListaBolsos();
+
+        this.mOver = false;
   }
 
 
@@ -90,7 +95,8 @@ export class HomePage {
   showAutor() {
     this.alertCtrl.create({
       header: 'Autor',
-      message: 'Juani Cañamaque - 2ºDAW',
+      message: `<p>Diseño y Desarrollo: </p>
+      <p>© Juani Cañamaque - 2ºDAW - 2020/2021</p>`,
       buttons: ['OK']
     }).then(res => {
       res.present();

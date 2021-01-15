@@ -34,9 +34,11 @@ ion-content{
 
 ion-header{
   --ion-background-color: #493320; 
-  background-image: url('../../assets/img/logo2.png');
-  background-repeat: repeat;
 }
+
+// ion-toolbar{
+//   --background: url('../../assets/img/Leather022_1K_Color.jpg') repeat; 
+// }
 
 
 .card{
@@ -45,6 +47,11 @@ ion-header{
   //--ion-background-color: #925523;
   color:white;
 }
+
+.card:hover{
+  --ion-background-color: linear-gradient(to bottom, #e6d28a 0%, #493320 100%); 
+}
+
 
 
 .titulo, .tLista{
@@ -62,6 +69,14 @@ ion-header{
   color: #A1D2C6;
 }
 
+#icMouse{
+  font-size: 20px;
+  color:black;
+}
+
+#encabezado{
+  align-self: center;
+}
 
 //ETILOS VARIABLES
 /*Para que tanto los botones como los textos se hagan
