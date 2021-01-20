@@ -69,13 +69,34 @@ ion-header{
   color: #A1D2C6;
 }
 
-#icMouse{
-  font-size: 20px;
-  color:black;
-}
+// #icMouse{
+//   font-size: 20px;
+//   color:black;
+// }
 
 #encabezado{
   align-self: center;
+}
+
+
+#filaF{
+  text-align: center;
+  vertical-align: top;
+}
+
+.enlaceI{
+  font-size:x-large;
+  color: black;
+}
+
+.enlaceP{
+  font-size: large;
+  font-weight: bold;
+}
+
+.ion-no-border{
+  --ion-background-color: #B39176;
+  height: fit-content;
 }
 
 //ETILOS VARIABLES
