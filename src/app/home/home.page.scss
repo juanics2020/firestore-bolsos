@@ -36,11 +36,6 @@ ion-header{
   --ion-background-color: #493320; 
 }
 
-// ion-toolbar{
-//   --background: url('../../assets/img/Leather022_1K_Color.jpg') repeat; 
-// }
-
-
 .card{
   text-align: center;
   --ion-background-color: linear-gradient(to bottom, #493320 0%, #86763e 100%); 
@@ -69,35 +64,35 @@ ion-header{
   color: #A1D2C6;
 }
 
-// #icMouse{
-//   font-size: 20px;
-//   color:black;
-// }
 
 #encabezado{
   align-self: center;
 }
 
 
-#filaF{
-  text-align: center;
-  vertical-align: top;
-}
-
-.enlaceI{
-  font-size:x-large;
-  color: black;
-}
-
-.enlaceP{
-  font-size: large;
-  font-weight: bold;
-}
 
 .ion-no-border{
   --ion-background-color: #B39176;
-  height: fit-content;
 }
+
+.colF{
+  width: 33.3%;
+  background-color: #B39176;
+}
+
+.colF:hover{
+  background-color: #493320;
+  color:white;
+  .enlaceI{
+    color:white;
+  }
+}
+
+.enlaceI{
+  font-size:large;
+  color: black;
+}
+
 
 //ETILOS VARIABLES
 /*Para que tanto los botones como los textos se hagan
@@ -189,7 +184,6 @@ ion-header{
     border-width: thin;
   }
 
-
   .card{
 
     @media screen and (min-width: 1px) and (max-width: 500px)  {    
@@ -213,6 +207,29 @@ ion-header{
       padding-left: 10em; 
     }
   }
-
-
 }
+
+.spF{
+
+  @media screen and (min-width: 1px) and (max-width: 500px)  {    
+    font-size: 0px;
+    visibility: hidden;
+      
+  }
+
+  @media screen and (min-width: 501px) and (max-width: 950px){
+    font-size: 15px; 
+    visibility: visible;
+  }
+
+  @media screen and (min-width: 951px) and (max-width: 2000px){
+    font-size: 20px;
+    visibility: visible;
+  }
+}
+
+
+
+
+
+
