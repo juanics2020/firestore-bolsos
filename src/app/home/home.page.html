@@ -35,8 +35,8 @@
             <ion-col *ngFor="let documentBolsos of arrayColeccionBolsos" size-xl="3" size-lg="4" size-md="5" size-sm="6" size-s="7" size-xs="12">
             <ion-card class="card" (click)="selecBolso(documentBolsos)" (mouseover)="mOver=true" (mouseout)="mOver=false"> 
               <ioncard-content>
-                <ion-icon id="icMouse" name="open-outline" *ngIf="mOver"></ion-icon>
-                <p *ngIf="!mOver">Haz clic...</p>
+                <!-- <ion-icon id="icMouse" name="open-outline" *ngIf="mOver"></ion-icon>
+                <p *ngIf="!mOver">Haz clic...</p> -->
                 <h3 id="tR" class="tR">   {{documentBolsos.data.Referencia}}</h3>
 
                 <p class="tB">{{documentBolsos.data.Nombre}}</p>
@@ -58,9 +58,29 @@
   <ion-fab  vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button class="b1" (click)="clicBotonInsertar()" color="warning"><ion-icon name="bag-add"></ion-icon></ion-fab-button>
   </ion-fab>
-  
+
 </ion-content>
 
+ <!-- Footer without a border -->
+ <ion-footer class="ion-no-border">
+  <ion-toolbar>   
+    <ion-grid>
+      <ion-row id="filaF">
+        <ion-col>
+          <ion-icon class="enlaceI" name="home"></ion-icon><p class="enlaceP">Home</p>
+        </ion-col>
+        <ion-col>
+          <ion-icon class="enlaceI" name="information-circle-outline"></ion-icon><p class="enlaceP">Descripción</p>
+        </ion-col>
+        <ion-col>  
+          <ion-icon class="enlaceI" name="locate-outline"></ion-icon><p class="enlaceP">Mapa</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+
+<!-- https://ionicframework.com/docs/api/tabs -->
 
 
 
