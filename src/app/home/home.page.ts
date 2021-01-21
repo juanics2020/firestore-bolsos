@@ -28,17 +28,12 @@ export class HomePage {
 
   //Variable para saber si modificamos un bolso o lo añadimos nuevo
   tipo: string;
-
-  //Variable para controlar si el ratón está encima de la card
-  mOver: boolean;
-   
+  
   constructor(private firestoreService: FirestoreService, private router: Router, private alertCtrl: AlertController) {
         // Crear un bolso vacío al empezar
         this.bolsosEditando = {} as Bolsos;
         //Obtener registros llamando a la función
         this.obtenerListaBolsos();
-
-        this.mOver = false;
   }
 
 
