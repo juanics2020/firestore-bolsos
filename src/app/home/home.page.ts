@@ -85,6 +85,13 @@ export class HomePage {
     this.router.navigate(["/ver-articulo", this.idBolsoSelec, this.tipo]);      
   }
 
+  navigateToDesc(){
+    this.router.navigate(["/descripcion"]);  
+  }
+
+  navigateToMap(){
+    this.router.navigate(["/mapa"]);  
+  }
 
   //  Alerta tipo Sencilla (un sólo botón)
   showAutor() {
