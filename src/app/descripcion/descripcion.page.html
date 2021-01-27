@@ -1,18 +1,43 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>descripcion</ion-title>
+    <ion-title>Descripcion</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content id="container">
 
   <ion-card class="card"> 
     <ioncard-content>
-      <h3 id="tR" class="tR">TARJETA</h3>
+      <div class="flex-container">
+        <div id="d1" class="flex-panelIz">
+          <img src="../../assets/img/sewing-machine-5021748_1920.jpg"  id="imagen"/>
+        </div>
 
-      <p class="tB">Párrafo</p>
-      <!-- <img src={{documentBolsos.data.Imagen}} class="tI"/> -->
+        <div id="d2" class="flex-panelDer">
+          <h1 id="empresa">Suonate</h1>
+          <p class="parrafo">Empresa líder en fabricación de artículos de marroquinería. Nuestra experiencia en la confección y fabricación de bolsos empieza en 1965.
+            Somos una empresa dedicada a la publicidad en bolsos y artículos similares, contando con amplios medios de diseño y fabricación en España así como en Oriente, para poder abarcar distintos sectores de promoción.</p>           
+          <p class="parrafo">Realizamos una importante inversión para construir una fábrica moderna, con todos los medios humanos, industriales e informáticos, para ser capaces de diseñar, serigrafiar y confeccionar todos nuestros productos. De esta manera, no dependemos de terceros en el acabado de nuestras colecciones.</p>
+        
+          <h1 id="aplicacion">Aplicación</h1>
+          <p class="parrafo">Esta es una aplicación desarrollada para funcionar en diferentes dispositivos.</p>
+          <p class="parrafo">A través de ella podrás: dar de alta y baja artículos, modificarlos y consultar.</p>
+        </div>
+      </div>
+      
     </ioncard-content>
   </ion-card> 
-
 </ion-content>
+
+<!-- Footer without a border -->
+<ion-footer class="ion-no-border">
+  <button  class="colF" defaultHref="home"><br>
+    <ion-icon class="enlaceI" name="home"></ion-icon><span class="spF"> Home</span>
+  </button>
+  <!-- <button class="colF" (click)="navigateToDesc()"><br>
+    <ion-icon class="enlaceI" name="information-circle-outline"></ion-icon><span class="spF"> Descripción</span>
+  </button> -->
+  <button class="colF" (click)="navigateToMap()"><br>
+    <ion-icon class="enlaceI" name="locate-outline"></ion-icon><span class="spF"> Mapa</span>
+  </button>
+</ion-footer>
