@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Router } from "@angular/router";
+
+
 @Component({
   selector: 'app-descripcion',
   templateUrl: './descripcion.page.html',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DescripcionPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
+
+
+  navigateToMap(){
+    this.router.navigate(["/mapa"]);  
+  }
+
 
 }
