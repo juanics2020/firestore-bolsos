@@ -20,5 +20,8 @@ export class DescripcionPage implements OnInit {
     this.router.navigate(["/mapa"]);  
   }
 
+  navigateToHome(){
+    this.router.navigate(["/home"]);  
+  }
 
 }
