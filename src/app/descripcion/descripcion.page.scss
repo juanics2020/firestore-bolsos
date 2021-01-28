@@ -1,3 +1,12 @@
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 ion-content {
     --background: url("../../assets/img/piel_fondo.png" );
     --ion-background-color: #B39176;
@@ -12,12 +21,13 @@ ion-title{
 }
 
 .card{
+    border-radius:20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.616);
+    transform: translateY(10%);
     margin-bottom:4%;
     margin-left:4%;
     margin-right:4%;
     padding:2%;
-    border-radius:20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.616);
 }
 
 
@@ -32,13 +42,11 @@ h1{
 }
 
 .parrafo{
-    font-size: large;
     color:black;
 }
 
 .flex-container {
     display: flex;
-
 }
 
 .flex-panelIz {
@@ -63,42 +71,108 @@ h1{
     --ion-background-color: #B39176;
   }
   
-  .colF{
-    width: 50%;
-    background-color: #B39176;
-  }
-  
-  .colF:hover{
-    background-color: #493320;
-    color:white;
-    .enlaceI{
-      color:white;
-    }
-  }
-  
+.colF{
+  width: 50%;
+  background-color: #B39176;
+  padding-bottom: 1%;
+}
+
+.colF:hover{
+  background-color: #493320;
+  color:white;
   .enlaceI{
-    font-size:large;
-    color: black;
+    color:white;
+  }
+}
+
+.enlaceI{
+  font-size:large;
+  color: black;
+}
+
+
+.spF{
+
+  @media screen and (min-width: 1px) and (max-width: 500px)  {    
+      display:none; 
   }
 
-  .spF{
-
-    @media screen and (min-width: 1px) and (max-width: 500px)  {    
-       display:none; 
-    }
-  
-    @media screen and (min-width: 501px) and (max-width: 950px){
-      font-size: 15px; 
-    }
-  
-    @media screen and (min-width: 951px) and (max-width: 2000px){
-      font-size: 20px;
-    }
-  
-    @media screen and (orientation: portrait) {
-      display:none;
-    }
-  
+  @media screen and (min-width: 501px) and (max-width: 950px){
+    font-size: 15px; 
   }
 
-  //----
+  @media screen and (min-width: 951px) and (max-width: 2000px){
+    font-size: 20px;
+  }
+
+  @media screen and (orientation: portrait) {
+    display:none;
+  }
+
+}
+
+.bback1{
+  color: white; 
+
+  @media screen and (min-width: 1px) and (max-width: 500px)  {    
+      --icon-font-size: 20px;   
+  }
+
+  @media screen and (min-width: 501px) and (max-width: 950px){
+      --icon-font-size: 30px; 
+  }
+
+  @media screen and (min-width: 951px) and (max-width: 2000px){
+      --icon-font-size: 40px; 
+  }
+
+}
+
+.t1{
+  @media screen and (min-width: 1px) and (max-width: 500px)  {    
+      font-size: 15px;   
+  }
+
+  @media screen and (min-width: 501px) and (max-width: 950px){
+      font-size: 20px; 
+  }
+
+  @media screen and (min-width: 951px) and (max-width: 2000px){
+      font-size: 30px; 
+  }
+
+}
+
+.parrafo{
+
+  @media screen and (min-width: 1px) and (max-width: 500px)  {    
+    font-size: small;   
+  }
+
+  @media screen and (min-width: 501px) and (max-width: 950px){
+    font-size: medium; 
+  }
+
+  @media screen and (min-width: 951px) and (max-width: 2000px){
+    font-size: large; 
+  }
+}
+
+#empresa, #aplicacion{
+
+  @media screen and (min-width: 1px) and (max-width: 500px)  {    
+    font-size: medium;   
+  }
+
+  @media screen and (min-width: 501px) and (max-width: 950px){
+    font-size: large; 
+  }
+
+  @media screen and (min-width: 951px) and (max-width: 2000px){
+    font-size: x-large; 
+  }
+  
+}
+
+/* SI QUEREMOS PONE ALTO SEGÚN NAVEGADOR---> 100vh es 100% del alto del navegador (1vh es un punto en el navegador)
+ height: calc(100vh - 15vh);//Le voy quitando un poco de altura co respecto al alto del navegador*/

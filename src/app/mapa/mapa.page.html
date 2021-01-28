@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>mapa</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button class="bback1" defaultHref="home" icon="arrow-back-circle-outline"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="t1">Mapa</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content id="container">
+
+  <div id="imagenCons" class="flex-panelIz">
+    <img src="../../assets/img/underconstruction.gif"  id="imagen"/>
+  </div>
 
 </ion-content>
+
+<!-- Footer without a border -->
+<ion-footer class="ion-no-border">
+  <button  class="colF" (click)="navigateToHome()"><br>
+    <ion-icon class="enlaceI" name="home"></ion-icon><span class="spF"> Home</span>
+  </button>
+  <button class="colF" (click)="navigateToDesc()"><br>
+    <ion-icon class="enlaceI" name="information-circle-outline"></ion-icon><span class="spF"> Descripción</span>
+  </button>
+  <!-- <button class="colF" (click)="navigateToMap()"><br>
+    <ion-icon class="enlaceI" name="locate-outline"></ion-icon><span class="spF"> Mapa</span>
+  </button> -->
+</ion-footer>

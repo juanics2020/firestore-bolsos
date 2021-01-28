@@ -85,6 +85,10 @@ export class HomePage {
     this.router.navigate(["/ver-articulo", this.idBolsoSelec, this.tipo]);      
   }
 
+  navigateToHome(){
+    this.router.navigate(["/home"]);  
+  }
+
   navigateToDesc(){
     this.router.navigate(["/descripcion"]);  
   }

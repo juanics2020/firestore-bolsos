@@ -1,6 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Descripcion</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button class="bback1" defaultHref="home" icon="arrow-back-circle-outline"></ion-back-button>
+    </ion-buttons>
+    
+    <ion-title class="t1">Descripcion</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,6 +12,7 @@
 
   <ion-card class="card"> 
     <ioncard-content>
+      
       <div class="flex-container">
         <div id="d1" class="flex-panelIz">
           <img src="../../assets/img/sewing-machine-5021748_1920.jpg"  id="imagen"/>
@@ -31,7 +36,7 @@
 
 <!-- Footer without a border -->
 <ion-footer class="ion-no-border">
-  <button  class="colF" defaultHref="home"><br>
+  <button  class="colF" (click)="navigateToHome()"><br>
     <ion-icon class="enlaceI" name="home"></ion-icon><span class="spF"> Home</span>
   </button>
   <!-- <button class="colF" (click)="navigateToDesc()"><br>
