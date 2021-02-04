@@ -26,8 +26,9 @@ export class VerArticuloPage implements OnInit {
     data: {} as Bolsos
   };
 
-
-  constructor(private activatedRoute: ActivatedRoute, private firestoreService: FirestoreService, private router: Router, private alertCtrl: AlertController) {}
+  constructor(private activatedRoute: ActivatedRoute,
+     private firestoreService: FirestoreService, private router: Router,
+      private alertCtrl: AlertController) {}
 
   ngOnInit() {
     //Recoge el id y el tipo de acción que realizamos
@@ -37,6 +38,7 @@ export class VerArticuloPage implements OnInit {
     //Sólo se cargarán los datos del bolso si se está modificando un bolso seleccionado(variable tipo se recibe del home)
     if(this.tipo == 'modificar'){
       this.firestoreService.consultarPorId("bolsos", this.id).subscribe((resultado) => {
+
         // Preguntar si se hay encontrado un document con ese ID
         if(resultado.payload.data() != null) {
           this.document.id = resultado.payload.id
@@ -47,7 +49,9 @@ export class VerArticuloPage implements OnInit {
           // No se ha encontrado un document con ese ID. Vaciar los datos que hubiera
           this.document.data = {} as Bolsos;
         } 
+
       });
+      
     }
   }
 
@@ -107,6 +111,8 @@ export class VerArticuloPage implements OnInit {
     });
 
   }
+
+
 
   //Alerta tipo Sencilla (un sólo botón)
   //  showAlert() {

@@ -56,14 +56,15 @@
     </ion-item>
 
     <ion-item class="i8">
-      <ion-label><strong>Fecha Diseño:</strong></ion-label>
-      <ion-input [(ngModel)]="document.data.FechaDiseno"></ion-input>
+      <span><ion-label><strong>Fecha Diseño:</strong></ion-label></span>
+      <span><ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="document.data.FechaDiseno" placeholder="día/mes/año" min="1950" max="2050"></ion-datetime></span>
     </ion-item>
 
     <ion-item class="i9">
       <ion-label><strong>Precio:</strong></ion-label>
       <ion-input [(ngModel)]="document.data.Precio"></ion-input>
     </ion-item>
+
 
     <!--Botón Añadir sólo aparecerá si en la pantalla Home elegimos Añadir (*ngIf = "tipo =='insertar'")
        y los otros dos botones sólo si en la pantalla Home pinchamos sobre un bolso (*ngIf = "tipo =='modificar'") -->
