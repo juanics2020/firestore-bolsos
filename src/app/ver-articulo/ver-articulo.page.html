@@ -30,29 +30,66 @@
       <ion-input [(ngModel)]="document.data.Nombre"></ion-input>
     </ion-item>
 
-    <ion-item class="i3">
+    <!-- <ion-item class="i3">
       <ion-label><strong>Categoria:</strong></ion-label>
       <ion-input [(ngModel)]="document.data.Categoria"></ion-input>
+    </ion-item> -->
+
+    <ion-item  class="i3">
+      <span><ion-label><strong>Categoria:</strong></ion-label></span>
+      <ion-select [(ngModel)]="document.data.Categoria" okText="OK" cancelText="Cancelar">
+        <ion-select-option value="Tote">Tote</ion-select-option>
+        <ion-select-option value="Crossbody">Crossbody</ion-select-option>
+        <ion-select-option value="Clutch">Clutch</ion-select-option>
+        <ion-select-option value="Shoulderbag">Shoulderbag</ion-select-option>
+        <ion-select-option value="DrawString">DrawString</ion-select-option>
+        <ion-select-option value="Satchel">Satchel</ion-select-option>
+        <ion-select-option value="Hobo">Hobo</ion-select-option>
+      </ion-select>
     </ion-item>
+
 
     <ion-item class="i4">
       <ion-label><strong>Color:</strong></ion-label>
       <ion-input [(ngModel)]="document.data.Color"></ion-input>
     </ion-item>
 
-    <ion-item class="i5">
+    <!-- <ion-item class="i5">
       <ion-label><strong>Herrajes:</strong></ion-label>
       <ion-input [(ngModel)]="document.data.Herrajes"></ion-input>
+    </ion-item> -->
+
+    <ion-item  class="i5">
+      <span><ion-label><strong>Herrajes:</strong></ion-label></span>
+      <ion-select [(ngModel)]="document.data.Herrajes" okText="OK" cancelText="Cancelar">
+        <ion-select-option value="Oro">Oro</ion-select-option>
+        <ion-select-option value="Niquel">Niquel</ion-select-option>
+        <ion-select-option value="Oro Viejo">Oro Viejo</ion-select-option>
+      </ion-select>
     </ion-item>
+
 
     <ion-item class="i6">
       <ion-label><strong>Imagen:</strong></ion-label>
       <ion-input [(ngModel)]="document.data.Imagen"></ion-input>
     </ion-item>
 
-    <ion-item class="i7">
+    <!-- <ion-item class="i7">
       <ion-label><strong>Piel:</strong></ion-label>
       <ion-input [(ngModel)]="document.data.Piel"></ion-input>
+    </ion-item> -->
+
+    <ion-item  class="i7">
+      <span><ion-label><strong>Piel:</strong></ion-label></span>
+      <ion-select [(ngModel)]="document.data.Piel" okText="OK" cancelText="Cancelar">
+        <ion-select-option value="Cuero">Cuero</ion-select-option>
+        <ion-select-option value="Ante">Ante</ion-select-option>
+        <ion-select-option value="Napa">Napa</ion-select-option>
+        <ion-select-option value="Serraje">Serraje</ion-select-option>
+        <ion-select-option value="Nobuk">Nobuk</ion-select-option>
+        <ion-select-option value="Charol">Charol</ion-select-option>
+        <ion-select-option value="Textil">Textil</ion-select-option>
+      </ion-select>
     </ion-item>
 
     <ion-item class="i8">
