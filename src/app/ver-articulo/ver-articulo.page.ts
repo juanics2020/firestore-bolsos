@@ -161,7 +161,7 @@ export class VerArticuloPage implements OnInit {
                         console.log("downloadURL:"+downloadURL);
 
 //------------------->GUARDAR downloadURL en this.document.data.Imagen
-//------------------->  this.document.data.Imagen = downloadURL;
+                        this.document.data.Imagen = downloadURL;
 
                         //Mostrar el mensaje de finalización de la subida
                         toast.present();
