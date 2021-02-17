@@ -100,7 +100,9 @@ export class VerArticuloPage implements OnInit {
           text: 'SÍ',
           handler: () => {
             //YA QUE EL USUARIO HA CONFIRMADO, BORRAMOS EL BOLSO
-            this.deleteFile(this.document.data.Imagen);
+            if(this.document.data.Imagen != null){
+              this.deleteFile(this.document.data.Imagen);
+            }
             this.firestoreService.borrar("bolsos", this.id).then(() => {
               // Limpiar datos de pantalla
               this.document.data = {} as Bolsos;
@@ -162,6 +164,12 @@ export class VerArticuloPage implements OnInit {
                         console.log("downloadURL:"+downloadURL);
 
 //------------------->GUARDAR downloadURL en this.document.data.Imagen
+                        //Si ya había una imagen, primero la borra
+                        if(this.document.data.Imagen != null){
+                          this.deleteFile(this.document.data.Imagen);
+                        }
+                        /*Una vez borrada, le metemos la nueva imagen
+                         que ha seleccionado el usuario en la base de datos*/
                         this.document.data.Imagen = downloadURL;
 
                         //Mostrar el mensaje de finalización de la subida

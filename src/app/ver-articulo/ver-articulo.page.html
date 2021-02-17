@@ -71,7 +71,9 @@
 
     <ion-item class="i6">
       <ion-label><strong>Imagen:</strong></ion-label>
-      <ion-input (click)="uploadImagePicker()"></ion-input><!--ion-input [(ngModel)]="document.data.Imagen"></ion-input -->
+      <ion-input (click)="uploadImagePicker()"><span id="textoImagen">Seleccione Imagen...</span></ion-input><!--ion-input [(ngModel)]="document.data.Imagen"></ion-input -->
+      <br>
+      <img src="{{document.data.Imagen}}" class="logo"/><!--Mostrará la imagen que se seleccione-->
     </ion-item>
 
     <!-- <ion-item class="i7">
