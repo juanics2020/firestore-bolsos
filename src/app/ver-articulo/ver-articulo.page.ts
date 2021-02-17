@@ -100,6 +100,7 @@ export class VerArticuloPage implements OnInit {
           text: 'SÍ',
           handler: () => {
             //YA QUE EL USUARIO HA CONFIRMADO, BORRAMOS EL BOLSO
+            this.deleteFile(this.document.data.Imagen);
             this.firestoreService.borrar("bolsos", this.id).then(() => {
               // Limpiar datos de pantalla
               this.document.data = {} as Bolsos;
