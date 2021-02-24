@@ -22,6 +22,9 @@ export class VerArticuloPage implements OnInit {
   //Si es insertar o modificar
   tipo = null;
 
+  dolares:number = 1.21;//valor de 1 euro en dolares
+  conversion:number = 0;
+
   document: any = {
     id: "",
     data: {} as Bolsos
@@ -49,6 +52,10 @@ export class VerArticuloPage implements OnInit {
           this.document.data = resultado.payload.data();
           // Como ejemplo, mostrar la Referencia del bolso en consola
           console.log(this.document.data.Referencia);
+          //Cargaremos el precio en euros a dolares
+          this.conversion = this.dolares*this.document.data.Precio;
+  
+
         } else {
           // No se ha encontrado un document con ese ID. Vaciar los datos que hubiera
           this.document.data = {} as Bolsos;
@@ -201,6 +208,10 @@ export class VerArticuloPage implements OnInit {
         });
     }
 
+
+    dolar(valor:number){
+      this.conversion = this.dolares*valor;
+    }
 
 
   //Alerta tipo Sencilla (un sólo botón)

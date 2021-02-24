@@ -51,7 +51,7 @@
 
     <ion-item class="i4">
       <ion-label><strong>Color:</strong></ion-label>
-      <ion-input [(ngModel)]="document.data.Color"></ion-input>
+      <ion-input [(ngModel)]="document.data.Color"></ion-input> 
     </ion-item>
 
     <!-- <ion-item class="i5">
@@ -71,9 +71,8 @@
 
     <ion-item class="i6">
       <ion-label><strong>Imagen:</strong></ion-label>
-      <ion-input (click)="uploadImagePicker()"><span id="textoImagen">Seleccione Imagen...</span></ion-input><!--ion-input [(ngModel)]="document.data.Imagen"></ion-input -->
-      <br>
-      <img src="{{document.data.Imagen}}" class="logo"/><!--Mostrará la imagen que se seleccione-->
+      <ion-input id="iPicker" (click)="uploadImagePicker()"><span id="textoImagen">Seleccione Imagen...</span><img src="{{document.data.Imagen}}"/></ion-input>
+      <!--ion-input [(ngModel)]="document.data.Imagen"></ion-input -->
     </ion-item>
 
     <!-- <ion-item class="i7">
@@ -101,7 +100,10 @@
 
     <ion-item class="i9">
       <ion-label><strong>Precio:</strong></ion-label>
-      <ion-input [(ngModel)]="document.data.Precio"></ion-input>
+      <ion-input type="number" id="prc" [(ngModel)]="document.data.Precio" (ngModelChange)="dolar($event)"></ion-input>
+      <ion-label id="usd"><strong>USD:</strong></ion-label>
+      <ion-label id="usdValue">{{conversion}}</ion-label>
+
     </ion-item>
 
 
