@@ -25,6 +25,7 @@
       <ion-input [(ngModel)]="document.data.Referencia"></ion-input>
     </ion-item>
 
+    
     <ion-item class="i2">
       <ion-label><strong>Nombre:</strong></ion-label>
       <ion-input [(ngModel)]="document.data.Nombre"></ion-input>
@@ -114,6 +115,7 @@
     <ion-button class="b3" (click)="clicBotonModificar()" title="Modificar" *ngIf = "tipo =='modificar'"><ion-icon name="create"></ion-icon></ion-button>
 
   </div>
+  <ion-button (click)="regularSharing()">Compartir</ion-button>
 </ion-content>
 
 

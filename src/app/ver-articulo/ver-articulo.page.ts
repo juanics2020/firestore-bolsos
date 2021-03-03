@@ -11,6 +11,10 @@ import { AlertController, LoadingController, ToastController } from '@ionic/angu
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 
 
+// Importamos módulo SocialSharing
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+
+
 @Component({
   selector: 'app-ver-articulo',
   templateUrl: './ver-articulo.page.html',
@@ -23,7 +27,9 @@ export class VerArticuloPage implements OnInit {
   tipo = null;
 
   dolares:number = 1.21;//valor de 1 euro en dolares
-  conversion:number = 0;
+  conversion:number = 0; //La usaremos para calcular dólares
+
+  cadena:string = ""; //Gruardará todos los datos del bolso como cadena
 
   document: any = {
     id: "",
@@ -35,7 +41,8 @@ export class VerArticuloPage implements OnInit {
       private alertCtrl: AlertController,
       private loadingController: LoadingController,
       private toastController: ToastController,
-      private imagePicker: ImagePicker) {}
+      private imagePicker: ImagePicker,
+      private socialSharing: SocialSharing) {}
 
   ngOnInit() {
     //Recoge el id y el tipo de acción que realizamos
@@ -211,6 +218,17 @@ export class VerArticuloPage implements OnInit {
 
     dolar(valor:number){
       this.conversion = this.dolares*valor;
+    }
+
+
+    regularSharing() {
+      this.cadena = this.id+", "+this.document.data.Referencia+", "+this.document.data.Nombre+", "+this.document.data.Categoria+", "+this.document.data.Precio+" €";
+
+      this.socialSharing.share(this.cadena, null, null, null).then(() => {
+        console.log("Se ha compartido correctamente");
+      }).catch((error) => {
+        console.log("Se ha producido un error: " + error);
+      });
     }
 
 
