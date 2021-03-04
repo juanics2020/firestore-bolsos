@@ -222,9 +222,20 @@ export class VerArticuloPage implements OnInit {
 
 
     regularSharing() {
-      this.cadena = this.id+", "+this.document.data.Referencia+", "+this.document.data.Nombre+", "+this.document.data.Categoria+", "+this.document.data.Precio+" €";
+      this.cadena = "Mejor bolso!!! "+this.document.data.Referencia+", "+this.document.data.Nombre+", Precio: "+this.document.data.Precio+" €";
 
       this.socialSharing.share(this.cadena, null, null, null).then(() => {
+        console.log("Se ha compartido correctamente");
+      }).catch((error) => {
+        console.log("Se ha producido un error: " + error);
+      });
+    }
+
+
+    whatsappShare(){
+      this.cadena = "Mejor bolso!!! "+this.document.data.Referencia+", "+this.document.data.Nombre+", Precio: "+this.document.data.Precio+" €";
+
+      this.socialSharing.shareViaWhatsApp(this.cadena, null, null).then(() => {
         console.log("Se ha compartido correctamente");
       }).catch((error) => {
         console.log("Se ha producido un error: " + error);
