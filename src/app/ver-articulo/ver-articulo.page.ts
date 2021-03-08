@@ -6,13 +6,15 @@ import { FirestoreService } from '../firestore.service';
 
 import { Router } from "@angular/router";
 
-//Importamos el controlador de alertas de ionic
+// Importamos el controlador de alertas de ionic
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 
 
 // Importamos módulo SocialSharing
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+
+import { MenuController } from '@ionic/angular';
 
 
 @Component({
@@ -30,7 +32,8 @@ export class VerArticuloPage implements OnInit {
   conversion:number = 0; //La usaremos para calcular dólares
 
   cadena:string = ""; //Gruardará todos los datos del bolso como cadena
-
+  urlShare:string ="https://ionicframework.com/docs/v3/native/social-sharing/"; //Url que se enviará al compartir
+  
   document: any = {
     id: "",
     data: {} as Bolsos
@@ -42,7 +45,8 @@ export class VerArticuloPage implements OnInit {
       private loadingController: LoadingController,
       private toastController: ToastController,
       private imagePicker: ImagePicker,
-      private socialSharing: SocialSharing) {}
+      private socialSharing: SocialSharing,
+      private menu: MenuController) {}
 
   ngOnInit() {
     //Recoge el id y el tipo de acción que realizamos
@@ -61,8 +65,9 @@ export class VerArticuloPage implements OnInit {
           console.log(this.document.data.Referencia);
           //Cargaremos el precio en euros a dolares
           this.conversion = this.dolares*this.document.data.Precio;
+          //Inicializamos la variable cadena que contendrá los datos que vamos a enviar al COMPARTIR
+          this.cadena = this.document.data.Referencia+", "+this.document.data.Nombre+", Precio: "+this.document.data.Precio+" €";
   
-
         } else {
           // No se ha encontrado un document con ese ID. Vaciar los datos que hubiera
           this.document.data = {} as Bolsos;
@@ -221,10 +226,9 @@ export class VerArticuloPage implements OnInit {
     }
 
 
-    regularSharing() {
-      this.cadena = "Mejor bolso!!! "+this.document.data.Referencia+", "+this.document.data.Nombre+", Precio: "+this.document.data.Precio+" €";
-
-      this.socialSharing.share(this.cadena, null, null, null).then(() => {
+    regularSharing() {     
+      //share(message, subject, file, url)
+      this.socialSharing.share(this.cadena, null, null, this.urlShare).then(() => {
         console.log("Se ha compartido correctamente");
       }).catch((error) => {
         console.log("Se ha producido un error: " + error);
@@ -233,14 +237,65 @@ export class VerArticuloPage implements OnInit {
 
 
     whatsappShare(){
-      this.cadena = "Mejor bolso!!! "+this.document.data.Referencia+", "+this.document.data.Nombre+", Precio: "+this.document.data.Precio+" €";
-
-      this.socialSharing.shareViaWhatsApp(this.cadena, null, null).then(() => {
+      //shareViaWhatsApp(message, image, url)
+      this.socialSharing.shareViaWhatsApp(this.cadena, this.document.data.Imagen, this.urlShare).then(() => {
         console.log("Se ha compartido correctamente");
       }).catch((error) => {
         console.log("Se ha producido un error: " + error);
       });
     }
+
+    twitterShare(){
+      //shareViaTwitter(message, image, url)
+      this.socialSharing.shareViaTwitter(this.cadena, this.document.data.Imagen, this.urlShare).then(() => {
+        console.log("Se ha compartido correctamente");
+      }).catch((error) => {
+        console.log("Se ha producido un error: " + error);
+      });
+    }
+
+    facebookShare(){
+      //shareViaFacebook(message, image, url)
+      this.socialSharing.shareViaFacebook(this.cadena, this.document.data.Imagen, this.urlShare).then(() => {
+        console.log("Se ha compartido correctamente");
+      }).catch((error) => {
+        console.log("Se ha producido un error: " + error);
+      });
+    }
+
+    instagramShare(){
+      //shareViaInstagram(message, image)
+      this.socialSharing.shareViaInstagram(this.cadena, this.document.data.Imagen).then(() => {
+        console.log("Se ha compartido correctamente");
+      }).catch((error) => {
+        console.log("Se ha producido un error: " + error);
+      });
+    }
+
+    mailShare(){
+      //shareViaEmail(message, subject, to, cc, bcc, files)
+      this.socialSharing.shareViaEmail(this.cadena, "Ionic", null, null, null, null).then(() => {
+        console.log("Se ha compartido correctamente");
+      }).catch((error) => {
+        console.log("Se ha producido un error: " + error);
+      });
+
+    }
+
+    smsShare(){
+      //shareViaSMS(messge, phoneNumber)
+      this.socialSharing.shareViaSMS(this.cadena, null).then(() => {
+        console.log("Se ha compartido correctamente");
+      }).catch((error) => {
+        console.log("Se ha producido un error: " + error);
+      });
+
+    }
+
+    openCustom() {
+      this.menu.toggle(); //Para que se oculte si está abierto y al contrario
+    }
+
 
 
   //Alerta tipo Sencilla (un sólo botón)
@@ -256,6 +311,42 @@ export class VerArticuloPage implements OnInit {
 
   //   });
 
+  // }
+
+
+  //Alerta con Prompt (pidiendo dato desde input)
+  // alertPrompt(){
+  //   //Sacamos una alerta tipo prompt
+  //   this.alertCtrl.create({
+  //     header: 'COMPARTIR CON',
+  //     // subHeader: 'Introudzca el email de destino',
+  //     message: 'Introduzca el email de destino:',
+  //     inputs:[
+  //       {
+  //         name: "mail",
+  //         type: "email",
+  //         placeholder: "email@email.com"
+  //       } 
+  //     ],
+  //     buttons: [
+  //       {
+  //         text: 'No',
+  //         role: 'cancel',
+  //         handler: () => {
+  //           console.log("Cancelado");
+  //         },
+  //       },
+  //       {
+  //         text: 'Enviar',
+  //         handler: (res) => {
+  //           //Guardamos el email que ha introducido el usuario en la variable
+  //           this.variable = res.mail;            
+  //         }
+  //       }
+  //     ]
+  //   }).then(res => {
+  //     res.present();
+  //   });
   // }
 
 }
