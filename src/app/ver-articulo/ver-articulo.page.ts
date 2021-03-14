@@ -238,8 +238,8 @@ export class VerArticuloPage implements OnInit {
 
     whatsappShare(){
       //shareViaWhatsApp(message, image, url)
-      // this.socialSharing.shareViaWhatsApp(this.cadena, this.document.data.Imagen, this.urlShare)
-      this.socialSharing.shareViaWhatsApp(this.cadena, "../assets/img/logo4.png", this.document.data.Imagen).then(() => {
+      //O también-> this.socialSharing.shareViaWhatsApp(this.cadena, "../assets/img/logo4.png", this.document.data.Imagen)
+      this.socialSharing.shareViaWhatsApp(this.cadena, this.document.data.Imagen, this.urlShare).then(() => {
         console.log("Se ha compartido correctamente");
       }).catch((error) => {
         console.log("Se ha producido un error: " + error);
@@ -248,8 +248,8 @@ export class VerArticuloPage implements OnInit {
 
     twitterShare(){
       //shareViaTwitter(message, image, url)
-      // this.socialSharing.shareViaTwitter(this.cadena, this.document.data.Imagen, this.urlShare)
-      this.socialSharing.shareViaTwitter(this.cadena, "../assets/img/logo4.png", this.document.data.Imagen).then(() => {
+      //O también-> this.socialSharing.shareViaTwitter(this.cadena, "../assets/img/logo4.png", this.document.data.Imagen)
+      this.socialSharing.shareViaTwitter(this.cadena, this.document.data.Imagen, this.urlShare).then(() => {
         console.log("Se ha compartido correctamente");
       }).catch((error) => {
         console.log("Se ha producido un error: " + error);
@@ -258,8 +258,8 @@ export class VerArticuloPage implements OnInit {
 
     facebookShare(){
       //shareViaFacebook(message, image, url)
-      // this.socialSharing.shareViaFacebook(this.cadena, this.document.data.Imagen, this.urlShare)
-      this.socialSharing.shareViaFacebook(this.cadena, "../assets/img/logo4.png", this.document.data.Imagen).then(() => {
+      // this.socialSharing.shareViaFacebook(this.cadena, "../assets/img/logo4.png", this.document.data.Imagen)
+      this.socialSharing.shareViaFacebook(this.cadena, this.document.data.Imagen, this.urlShare).then(() => {
         console.log("Se ha compartido correctamente");
       }).catch((error) => {
         console.log("Se ha producido un error: " + error);
@@ -269,7 +269,7 @@ export class VerArticuloPage implements OnInit {
     instagramShare(){
       //shareViaInstagram(message, image)
       // this.socialSharing.shareViaInstagram(this.cadena, this.document.data.Imagen)
-      this.socialSharing.shareViaInstagram(this.cadena, "../assets/img/logo4.png").then(() => {
+      this.socialSharing.shareViaInstagram(this.cadena, this.document.data.Imagen).then(() => {
         console.log("Se ha compartido correctamente");
       }).catch((error) => {
         console.log("Se ha producido un error: " + error);
